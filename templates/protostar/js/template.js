@@ -50,68 +50,22 @@
 			
 		});
 		
-		//$(window).scroll(function() {
-			/*$(".pllx-l1").parallax("50%", .5);
-			$(".pllx-l2").parallax("50%", .3);
-			$(".pllx-l3").parallax("50%", -.4, true);
-			
-			$(".pllx-l3").css("background-position-y", "12px");
-			
-		$(window).scroll(function() {
-			var scroll = $(window).scrollTop();
-			if(scroll < 1) {
-				$(".pllx-l3").css("background-position-y", "12px");
-			}
-		});*/
-		try {
-			$(".pllx-l1").scrollingParallax({
-			enableHorizontal: true,
-			staticSpeed : .2, 
-			loopIt : true
-		});
-		$(".pllx-l2").scrollingParallax({
-			enableHorizontal: true,
-			staticSpeed : .4, 
-			loopIt : true
-		});
-		
-		} catch(e) {
-			console.debug(e);
-		}
 		/*
-		$(".pllx-l1").scrollingParallax({
-			enableHorizontal: true,
-			staticSpeed : .2, 
-			loopIt : true
-		});
-		$(".pllx-l2").scrollingParallax({
-			enableHorizontal: true,
-			staticSpeed : .4, 
-			loopIt : true
-		});
-		$(".pllx-l3").scrollingParallax({
-			enableHorizontal: true,
-			staticSpeed : .3, 
-			reverseDirection: true,
-			loopIt : true
-		});
-		*/
-		
-		
-		/*
-		$(".customhed").parallax("80%", .4, true);
-		$(".menu li a").css({ color: "#F3F3F3" });
-		
-		$(window).scroll(function() { 
-			var scroll = $(window).scrollTop();
-			if(scroll > 10) {
-				$(".header").css({backgroundColor: "rgba(244, 241, 239, .9)"});
-				$(".menu li a").css({ color: "#231F20" });
-			} else {
-				$(".header").css({backgroundColor: "rgba(0,0,0,0)"});
-				$(".menu li a").css({ color: "#F3F3F3" });
-			}
+		$(document).alton({
+		    fullSlideContainer: 'body', // Tell Alton the full height container
+		    singleSlideClass: 'slide', // Tell Alton the full height slide class
+		    useSlideNumbers: true, // Set to false if you don't want to use pagination
+		    slideNumbersBorderColor: '#fff', // Set the outside color of the pagination items
+		    slideNumbersColor: 'transparent', // Set the inner color of the pagination items
+		    bodyContainer: 'slider-container', // Tell Alton the body class
 		});*/
+		
+		$(".pllx-l1").parallax("50%", -.5);
+		$(".pllx-l2").parallax("50%", .2);
+		//$(".pllx-l3").parallax("50%", 1);
+		$(".pllx-l4").parallax("50%", .6);
+		
+		
 		
 	})// end document ready
 })(jQuery);

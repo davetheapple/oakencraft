@@ -39,11 +39,11 @@ else
 JHtml::_('bootstrap.framework');
 JHtml::_('jquery.framework');
 
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.localscroll-1.2.7-min.js');
+/*$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.localscroll-1.2.7-min.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.parallax-1.1.3.js');
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.scrollTo-1.4.2-min.js'); // jquery.scrolling-parallax.js
 $doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/jquery.scrolling-parallax.js');
-$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');
+$doc->addScript($this->baseurl . '/templates/' . $this->template . '/js/template.js');*/
 
 // Add Stylesheets
 $doc->addStyleSheet($this->baseurl . '/templates/' . $this->template . '/css/template.css');
@@ -135,6 +135,15 @@ echo '</div>';*/
 	<!--[if lt IE 9]>
 		<script src="<?php echo JUri::root(true); ?>/media/jui/js/html5.js"></script>
 	<![endif]-->
+	<?php $bUrl = $this->baseurl . '/templates/' . $this->template; ?>
+	<script src='<?php echo $bUrl; ?>/js/velocity.min.js'></script>
+	<script src='<?php echo $bUrl; ?>/js/jquery.localscroll-1.2.7-min.js'></script>
+	<script src='<?php echo $bUrl; ?>/js/jquery.parallax-1.1.3.js'></script>
+	<script src='<?php echo $bUrl; ?>/js/jquery.scrollTo-1.4.2-min.js'></script>
+	
+	<script src='<?php echo $bUrl; ?>/js/jquery.alton.min.js'></script>
+	<script src='<?php echo $bUrl; ?>/js/velocity.min.js'></script>
+	<script src='<?php echo $bUrl; ?>/js/template.js'></script>
 </head>
 
 <body class="site <?php echo $option
@@ -148,39 +157,12 @@ echo '</div>';*/
 
 	<!-- Body -->
 	<div class="body">
-		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<!-- Header -->
-			<header class="header" role="banner">
-				<div class="header-inner clearfix">
-					<a class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
-						<?php echo $logo; ?>
-						<?php if ($this->params->get('sitedescription')) : ?>
-							<?php echo '<div class="site-description">' . htmlspecialchars($this->params->get('sitedescription')) . '</div>'; ?>
-						<?php endif; ?>
-					</a>
-					<div class="header-search pull-right">
-						<jdoc:include type="modules" name="position-0" style="none" />
-					</div>
-				</div>
-				<?php if ($this->countModules('position-1')) : ?>
-				<nav class="navigation" role="navigation">
-					<div class="navbar pull-left">
-						<a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</a>
-					</div>
-					<div class="nav-collapse">
-						<jdoc:include type="modules" name="position-1" style="none" />
-					</div>
-				</nav>
-			<?php endif; ?>
-			</header>
+		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?> slider-container">
 			
-			<jdoc:include type="modules" name="banner" style="xhtml" />
+			
+			<!-- jdoc:include type="modules" name="banner" style="xhtml" / -->
 			<div class="row-fluid">
-				<?php if ($this->countModules('position-8')) : ?>
+				<?php /*if ($this->countModules('position-8')) : ?>
 					<!-- Begin Sidebar -->
 					<div id="sidebar" class="span3">
 						<div class="sidebar-nav">
@@ -188,22 +170,46 @@ echo '</div>';*/
 						</div>
 					</div>
 					<!-- End Sidebar -->
-				<?php endif; ?>
-				<main id="content" role="main" class="<?php echo $span; ?>">
+				<?php endif; */?>
+				<main id="content" role="main" class="<?php echo $span; ?> slide">
 					<!-- Begin Content -->
+					<!-- Header -->
+					<header class="header" role="banner">
+						<div class="header-inner clearfix">
+							<a class="brand pull-left" href="<?php echo $this->baseurl; ?>/">
+								<?php echo $logo; ?>
+							</a>
+							<div class="header-search pull-right">
+								<jdoc:include type="modules" name="position-0" style="none" />
+							</div>
+						</div>
+						
+						<nav class="navigation" role="navigation">
+							<jdoc:include type="module" name="breadcrumbs" title="Breadcrumbs" />
+							<jdoc:include type="module" name="menu" />
+							<jdoc:include type="message" />
+						</nav>
+					
+					</header>
 					<jdoc:include type="modules" name="position-3" style="xhtml" />
-					<jdoc:include type="message" />
-					<jdoc:include type="component" />
-					<jdoc:include type="modules" name="position-2" style="none" />
 					<!-- End Content -->
 				</main>
-				<?php if ($this->countModules('position-7')) : ?>
+				
+				<div class="slide" id="slide2">
+					<!-- jdoc:include type="component" / -->
+					<jdoc:include type="modules" name="position-7" />
+				</div>
+				
+				<div class="slide" id="slide3">
+					<!-- jdoc:include type="modules" name="position-2" style="none" / -->
+				</div>
+				<?php /*if ($this->countModules('position-7')) : ?>
 					<div id="aside" class="span3">
 						<!-- Begin Right Sidebar -->
 						<jdoc:include type="modules" name="position-7" style="well" />
 						<!-- End Right Sidebar -->
 					</div>
-				<?php endif; ?>
+				<?php endif;*/ ?>
 			</div>
 		</div>
 	</div>

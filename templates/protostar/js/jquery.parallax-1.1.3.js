@@ -24,6 +24,13 @@ http://www.gnu.org/licenses/gpl.html
 		var getHeight;
 		var firstTop;
 		var paddingTop = 0;
+		var origPos = parseInt($(this).css("background-position-y"));
+		
+		$("head").append("<style id='"+$this.attr("class")+"'>@-webkit-keyframes "+$this.attr("class")+" {"+
+				   "to { "+
+				     "-webkit-transform: translateY(0);"+
+				   "}"+
+				"}</style>");
 		
 		//get the starting position of each element to have parallax applied to it		
 		$this.each(function(){
@@ -58,8 +65,30 @@ http://www.gnu.org/licenses/gpl.html
 				if (top + height < pos || top > pos + windowHeight) {
 					return;
 				}
-
-				$this.css('backgroundPosition', xpos + " " + Math.round((firstTop - pos) * speedFactor) + "px");
+				/*
+				$("#"+$this.attr("class")).text(
+					"@-webkit-keyframes "+$this.attr("class")+" {"+
+					   "0 {"+
+					     "-webkit-transform: translateY(0);"+
+					   "}"+
+					   "100% { "+
+					     "-webkit-transform: translateY("+Math.round((firstTop - pos) * speedFactor) + "%);"+
+					   "}"+
+					"}");*/
+				$this.css("background-position-x", xpos);
+				$this.css("-webkit-animation-name", $this.attr("class"));
+				$this.animate({'background-position-y': Math.round((firstTop - pos) * speedFactor) + "px"}, 300);
+				
+				$this.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
+			    function(e) {
+			    
+			    $("#"+$this.attr("class")).text(
+					"@-webkit-keyframes "+$this.attr("class")+" {"+
+					   "to { "+
+					     "-webkit-transform: translateY("+Math.round((firstTop - pos) * speedFactor) + "%);"+
+					   "}"+
+					"}");
+			    });
 			});
 		}		
 

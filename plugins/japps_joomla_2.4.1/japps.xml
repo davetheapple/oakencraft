@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.0" type="component" method="upgrade">
+	<name>jApps</name>
+	<author>Joobi</author>
+	<creationDate>December 2015</creationDate>
+	<copyright>Copyright (C) 2015. Joobi Limited All rights reserved</copyright>
+	<license>GNU GPLv3</license>
+	<authorEmail>support@joobi.co</authorEmail>
+	<authorUrl>www.joobi.co</authorUrl>
+	<version>2.4.1</version>
+	<description><![CDATA[
+<div style="font-family: Helvetica Neue; margin: 15px; padding:20px; border-radius: 30px; color: #FFFFFF; background-color: #2BA3D4; width:95%; line-height:1.5em; padding-bottom: 90; height:330px;">
+	<div class="span12" style="text-align:center;">
+			<img class="img-responsive" src="http://www.joobi.co/templates/purity_iii/images/logo.png" alt="joobi">
+			<h2 style="font-size: 28px; font-weight: normal;">jApps was successfully installed!</h2>
+			<center><hr style="width: 60%;"></center>
+			<p style="font-size: 20px; font-weight: bold;">jApps. Your Command Center.</p>
+			<p style="font-size: 19px; font-weight: normal;">Thank you for using Joobi! Please click below button to install Joobi Apps and configure it to your liking.</p>
+			<p style="font-size: 19px; font-weight: normal;">Use jApps to find, download, update and uninstall Joobi Apps for your Joomla website. Should you need any further assistance, please contact us via live chat or <a style="color:white; text-decoration: underline;" href="http://www.joobi.co/help.html" target="_blank">ticket system</a>.</p>
+			<p style="font-size: 19px; font-weight: normal;">We look forward to working with you and growing together in the months and years ahead.</p>
+	</div>
+
+	<div style=" float:left; width:100%; margin-top: 35px;">
+		<div style="margin: 0 auto; width:50%; text-align:center;">
+			<a href="index.php?option=com_japps&controller=apps" style="text-decoration:none; color:#FFF;background-color:#0A79A6; padding:18px 27px;font-size:19px;line-height:0.33;border-radius:6px;border:1px solid transparent;">Browse & Install Apps</a>
+		</div>
+	</div>
+</div>
+]]></description>
+ 	<scriptfile>japps.php</scriptfile>
+	<files folder="site">
+		<filename>japps.php</filename>
+		<filename>index.html</filename>
+		<filename>router.php</filename>
+	</files>
+	<administration>
+		<files folder="admin">
+			<filename>tables.sql</filename>
+			<filename>uninstall.sql</filename>
+			<filename>alter.sql</filename>
+			<filename>data.sql</filename>
+			<filename>japps.php</filename>
+			<filename>index.html</filename>
+			<filename>joobi.tar.gz</filename>
+		</files>
+
+	</administration>
+</extension>
+ 		

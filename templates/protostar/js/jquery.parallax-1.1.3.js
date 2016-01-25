@@ -1,10 +1,7 @@
 /*
 Plugin: jQuery Parallax
-Version 1.1.3
-Author: Ian Lunn
-Twitter: @IanLunn
-Author URL: http://www.ianlunn.co.uk/
-Plugin URL: http://www.ianlunn.co.uk/plugins/jquery-parallax/
+Version 1
+Author: David Barrera
 
 Dual licensed under the MIT and GPL licenses:
 http://www.opensource.org/licenses/mit-license.php
@@ -12,87 +9,47 @@ http://www.gnu.org/licenses/gpl.html
 */
 
 (function( $ ){
-	var $window = $(window);
-	var windowHeight = $window.height();
+	var $win = $(window);
+	var $doc = $(document);
+	
 
-	$window.resize(function () {
-		windowHeight = $window.height();
-	});
-
-	$.fn.parallax = function(xpos, speedFactor, outerHeight) {
+	$.fn.parallax = function(speed, mouseMove, mouseSpeed) {
 		var $this = $(this);
-		var getHeight;
-		var firstTop;
-		var paddingTop = 0;
-		var origPos = parseInt($(this).css("background-position-y"));
-		
-		$("head").append("<style id='"+$this.attr("class")+"'>@-webkit-keyframes "+$this.attr("class")+" {"+
-				   "to { "+
-				     "-webkit-transform: translateY(0);"+
-				   "}"+
-				"}</style>");
-		
-		//get the starting position of each element to have parallax applied to it		
-		$this.each(function(){
-		    firstTop = $this.offset().top;
-		});
-
-		if (outerHeight) {
-			getHeight = function(jqo) {
-				return jqo.outerHeight(true);
-			};
-		} else {
-			getHeight = function(jqo) {
-				return jqo.height();
-			};
-		}
-			
-		// setup defaults if arguments aren't specified
-		if (arguments.length < 1 || xpos === null) xpos = "50%";
-		if (arguments.length < 2 || speedFactor === null) speedFactor = 0.1;
-		if (arguments.length < 3 || outerHeight === null) outerHeight = true;
+		var x = 0;
+		var y = 0;
+		var moveTheMouse = mouseMove || false;
+		mouseSpeed = mouseSpeed || .01;
 		
 		// function to be called whenever the window is scrolled or resized
-		function update(){
-			var pos = $window.scrollTop();				
+		function update(event){
+			var pos = $win.scrollTop();
+			var curX = $this.position().left;
+			x = event.originalEvent.pageX;
+			y = event.originalEvent.pageY;			
 
-			$this.each(function(){
-				var $element = $(this);
-				var top = $element.offset().top;
-				var height = getHeight($element);
-
-				// Check if totally above or totally below viewport
-				if (top + height < pos || top > pos + windowHeight) {
-					return;
-				}
-				/*
-				$("#"+$this.attr("class")).text(
-					"@-webkit-keyframes "+$this.attr("class")+" {"+
-					   "0 {"+
-					     "-webkit-transform: translateY(0);"+
-					   "}"+
-					   "100% { "+
-					     "-webkit-transform: translateY("+Math.round((firstTop - pos) * speedFactor) + "%);"+
-					   "}"+
-					"}");*/
-				$this.css("background-position-x", xpos);
-				$this.css("-webkit-animation-name", $this.attr("class"));
-				$this.animate({'background-position-y': Math.round((firstTop - pos) * speedFactor) + "px"}, 300);
+			if($win.scrollTop() > $win.height()/2) {
+				$this.css("opacity", 0);
+			} else {
+				$this.css("opacity", 1);
 				
-				$this.one('webkitAnimationEnd oanimationend msAnimationEnd animationend',   
-			    function(e) {
-			    
-			    $("#"+$this.attr("class")).text(
-					"@-webkit-keyframes "+$this.attr("class")+" {"+
-					   "to { "+
-					     "-webkit-transform: translateY("+Math.round((firstTop - pos) * speedFactor) + "%);"+
-					   "}"+
-					"}");
-			    });
-			});
-		}		
+				//$this.css({"transform": 		"translate("+curX+"px, " + pos * speed +"px)"});
+				//$this.css({"-webkit-transform": "translate("+curX+"px, " + pos * speed +"px)"});
+				
+				$this.css({"-webkit-transition": ".4s"});
+				$this.css({"transition": ".4s"});
+				$this.css({"top": -pos * speed +"px"});
+				
+			}
+			
+			if(mouseMove) {
+				$this.css({"transform": 		"translate("+x*mouseSpeed+"px, "+y*mouseSpeed+"px)"});
+				$this.css({"-webkit-transform": "translate("+x*mouseSpeed+"px, "+y*mouseSpeed+"px)"});
+			}
 
-		$window.bind('scroll', update).resize(update);
-		update();
+		}
+
+		$win.bind('scroll', update).resize(update);
+		$doc.bind('mousemove', update).resize(update);
+		//update();
 	};
 })(jQuery);

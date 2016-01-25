@@ -140,6 +140,7 @@ echo '</div>';*/
 	<script src='<?php echo $bUrl; ?>/js/jquery.localscroll-1.2.7-min.js'></script>
 	<script src='<?php echo $bUrl; ?>/js/jquery.parallax-1.1.3.js'></script>
 	<script src='<?php echo $bUrl; ?>/js/jquery.scrollTo-1.4.2-min.js'></script>
+	<script src='<?php echo $bUrl; ?>/js/jquery.stellar.min.js'></script>
 	
 	<script src='<?php echo $bUrl; ?>/js/jquery.alton.min.js'></script>
 	<script src='<?php echo $bUrl; ?>/js/velocity.min.js'></script>
@@ -171,7 +172,7 @@ echo '</div>';*/
 					</div>
 					<!-- End Sidebar -->
 				<?php endif; */?>
-				<main id="content" role="main" class="<?php echo $span; ?> slide">
+				<main id="content" role="main" class="<?php echo $span; ?> slide" data-stellar-background-ratio="0.2">
 					<!-- Begin Content -->
 					<!-- Header -->
 					<header class="header" role="banner">
@@ -186,6 +187,7 @@ echo '</div>';*/
 						
 						<nav class="navigation" role="navigation">
 							<jdoc:include type="module" name="breadcrumbs" title="Breadcrumbs" />
+							
 							<jdoc:include type="module" name="menu" />
 							<jdoc:include type="message" />
 						</nav>
@@ -201,7 +203,7 @@ echo '</div>';*/
 				</div>
 				
 				<div class="slide" id="slide3">
-					<!-- jdoc:include type="modules" name="position-2" style="none" / -->
+					<jdoc:include type="modules" name="position-4" />
 				</div>
 				<?php /*if ($this->countModules('position-7')) : ?>
 					<div id="aside" class="span3">

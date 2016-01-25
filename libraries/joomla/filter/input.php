@@ -608,6 +608,7 @@ class JFilterInput
 	 */
 	protected function _remove($source)
 	{
+	/*
 		$loopCounter = 0;
 
 		// Iteration provides nested tag protection
@@ -616,7 +617,7 @@ class JFilterInput
 			$source = $this->_cleanTags($source);
 			$loopCounter++;
 		}
-
+*/
 		return $source;
 	}
 

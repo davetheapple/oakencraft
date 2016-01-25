@@ -196,15 +196,39 @@ echo '</div>';*/
 					<jdoc:include type="modules" name="position-3" style="xhtml" />
 					<!-- End Content -->
 				</main>
-				
-				<div class="slide" id="slide2">
-					<!-- jdoc:include type="component" / -->
-					<jdoc:include type="modules" name="position-7" />
-				</div>
-				
-				<div class="slide" id="slide3">
+				<div class="slide col-md-9" id="slide3">
 					<jdoc:include type="modules" name="position-4" />
 				</div>
+				<div class="slide col-md-3" id="slide2">
+					<!-- jdoc:include type="component" / -->
+					<!-- jdoc:include type="modules" name="position-5" / -->
+					
+					<?php
+					
+					$query = "SELECT * FROM #__content";
+					$db = JFactory::getDBO();
+					$db->setQuery($query); 
+					$articles = $db->loadObjectList(); 
+					$count = 0;
+					foreach($articles as $article){
+					    if($count >= 3) break;
+					    
+					    $article2 = JTable::getInstance("content"); 
+						$article2->load($article->id); // Get Article ID
+						$article_images = $article2->get("images"); // Get image parameters
+						$pictures = json_decode($article_images); // Split the parameters apart
+						// Print the image
+						if($pictures->{'image_intro'}) {
+							echo "<div class='product'><img src='" . $pictures->{'image_intro'} . "' alt='" . $pictures->{'image_intro_alt'} . "'><p class='prod-title'>".$article->title."</p></div>";
+							$count++;
+						}
+						
+					}
+					
+					?>
+				</div>
+				
+				
 				<?php /*if ($this->countModules('position-7')) : ?>
 					<div id="aside" class="span3">
 						<!-- Begin Right Sidebar -->
@@ -218,15 +242,10 @@ echo '</div>';*/
 	<!-- Footer -->
 	<footer class="footer" role="contentinfo">
 		<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
-			<hr />
+
 			<jdoc:include type="modules" name="footer" style="none" />
-			<p class="pull-right">
-				<a href="#top" id="back-top">
-					<?php echo JText::_('TPL_PROTOSTAR_BACKTOTOP'); ?>
-				</a>
-			</p>
 			<p>
-				&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>
+				&copy; <?php echo date('Y'); ?> <?php echo $sitename; ?>. All rights reserved.
 			</p>
 		</div>
 	</footer>

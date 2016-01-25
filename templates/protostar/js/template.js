@@ -43,11 +43,12 @@
 		});
 		
 		// additional custom content below
-		$(".cart-icon").hover(function(){
-			
-			
-		}, function() {
-			
+		$(".item-120").hover(function(){
+			$("#login-form").css({"height": "20vh", "padding": "1em", "border": "solid thin white"});
+		}, function() {});
+		
+		$("#login-form").hover(function(){}, function() {
+			$("#login-form").css({"height": "0", "padding": "0", "border": "none"});
 		});
 		
 		$(".pllx-l1").parallax(.8, true, .01);
@@ -67,6 +68,8 @@
 				
 			}
 		});
+		
+		
 		
 		
 		

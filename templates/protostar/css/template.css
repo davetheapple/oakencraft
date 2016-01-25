@@ -171,7 +171,7 @@ position: relative;
 .pllx-l3 img{
 	z-index:7;
 	/*background-image: url(../images/coffee.png);*/
-	width: 450px;
+	width: 70vmin;
 	position:fixed;
 	right:0;
 	top:10%;
@@ -294,9 +294,10 @@ main#content {
 }
 
 #login-form {
-    display: inline-block;
+    display: block;
+    overflow:hidden;
     margin: 1em;
-    padding: 1em;
+   /* padding: 1em;*/
     width: 20vw;
     background: white;
     float: right;
@@ -306,10 +307,11 @@ main#content {
     bottom: 4em;
     right: 1em;
     box-shadow: 0 0 50px black, inset 0 0 50px #D8D8D8;
-    border: solid thin white;
+    /*border: solid thin white;*/
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    transition: .5s;
+    transition: height .5s;
+    height:0;
 }
 
 #login-form input {
@@ -362,4 +364,66 @@ ul.nav.menu.nav-pills img {
     width: 60%;
 }
 
+.footer {
+    margin-bottom: 13vh;
+}
+div#slide3, #slide2 {
+        width: 40%;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    vertical-align: top;
+    margin: 1em;
+    margin-top: -49vh;
+    z-index: 9;
+    padding: 1em;
+    border-radius: 5px;
+    /* border: solid thin white; */
+    color: white;
+}
 
+footer.footer a, .footer a:active {
+    color: white;
+}
+.footer {
+    margin-bottom: 13vh;
+    padding: 1em;
+    background: rgba(255, 255, 255, 0.23);
+    color: white;
+}
+
+img#seal {
+    position: absolute;
+    right: -5vh;
+    top: -15vh;
+    width: 30vh;
+    -webkit-transform: rotate(20deg);
+}
+
+p.space-maker {
+    float: right;
+    display: block;
+    width: 10vw;
+    height: 5vh;
+}
+
+.custom_product_feed img {
+    width: 25vmin;
+    margin-top: -10vh;
+}
+
+.prod-title {
+    text-align: center;
+    position: relative;
+    margin-top: -5vh;
+    font-weight: bold;
+    text-shadow: 0 0 15px black, 0 0 5px black;
+    font-size: 14pt;
+}
+.product {
+    display: inline-block;
+    margin-top: -10vh;
+}
+.product img {
+    width: 25vmin;
+}

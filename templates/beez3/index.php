@@ -81,6 +81,17 @@ $doc->addScript($this->baseurl . '/templates/' . $this->template . '/javascript/
 		<!--[if IE 7]>
 		<link href="<?php echo $this->baseurl; ?>/templates/<?php echo $this->template; ?>/css/ie7only.css" rel="stylesheet" type="text/css" />
 		<![endif]-->
+      
+        <?php $bUrl = $this->baseurl . '/templates/' . $this->template; ?>
+        <script src='<?php echo $bUrl; ?>/js/velocity.min.js'></script>
+        <script src='<?php echo $bUrl; ?>/js/jquery.localscroll-1.2.7-min.js'></script>
+        <script src='<?php echo $bUrl; ?>/js/jquery.parallax-1.1.3.js'></script>
+        <script src='<?php echo $bUrl; ?>/js/jquery.scrollTo-1.4.2-min.js'></script>
+        <script src='<?php echo $bUrl; ?>/js/jquery.stellar.min.js'></script>
+
+        <script src='<?php echo $bUrl; ?>/js/jquery.alton.min.js'></script>
+        <script src='<?php echo $bUrl; ?>/js/velocity.min.js'></script>
+        <script src='<?php echo $bUrl; ?>/js/template.js'></script>
 	</head>
 	<body id="shadow">
 		<?php if ($color == 'image'):?>

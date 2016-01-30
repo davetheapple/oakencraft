@@ -408,3 +408,78 @@ footer.footer {
 .span12 {
     /* margin-left: 5em; */
 }
+
+.article-intro-text {
+    display:  inline-block;
+}
+
+td.list-title img {
+    width: 10vmax;
+    /* display: block; */
+    border-radius: 5px;
+    vertical-align: top;
+}
+
+td.list-title a {
+    font-weight: bold;
+    color: black;
+    font-size: 15pt;
+}
+
+.category .table tr {
+    height: 25vmin;
+}
+
+table.category.table.table-striped.table-bordered.table-hover tbody tr {
+    /* height: 25vmin; */
+}
+
+td.list-hits .product-price-container, td.list-hits .badge-info {
+    display: none;
+}
+
+td.list-hits input {
+    margin: 1em;
+}
+
+td.list-hits .j2store-add-to-cart {
+    text-align: center !important;
+}
+
+td.list-hits input.input-mini.form-control {
+    /* width: 80% !important; */
+}
+
+td.list-hits {
+    text-align: center;
+}
+
+.prod-intro-text, .prod-list-img {
+    display: inline-block;
+}
+
+td.list-title a:first-child {
+    display: block;
+    margin: 1em 0;
+}
+
+.prod-intro-text {
+    width: 50%;
+    margin-left: 2em;
+}
+
+.prod-intro-text .j2store-product-images {
+    display: none;
+}
+
+.contact .thumbnail img {
+    width: 25%;
+}
+
+#content {
+    padding-left: 1em;
+}
+
+.item-122 {
+    background: rgba(255, 212, 0, 0.24);
+}

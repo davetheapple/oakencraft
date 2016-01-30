@@ -49,8 +49,10 @@
 		}, function() {});
 		
 		$("._login").hover(function() {}, function(){
-			$("._login").css({"height": "0", opacity: 0});
+			if(!$("._login input").is(":focus")) {
+				$("._login").css({"height": "0", opacity: 0});
 			//$("._login").animate({height: 0}, 800, function(){ $(this).hide()});
+			}
 		});
 		
 		
@@ -59,7 +61,7 @@
 		$(".pllx-layer1").parallax(.8, true, .01);
 		$(".pllx-layer2").parallax(.4, true, .05);
 		//$(".pllx-l3").parallax(0, false, .01);
-		$(".pllx-layer4").parallax(.5, true, .08);
+		$(".pllx-layer4").parallax(.5, true, .02);
 		$(".pllx-layer5").parallax(.8, false, .08);
 		
 		if(!$(".pllx-layer1 img").length) {

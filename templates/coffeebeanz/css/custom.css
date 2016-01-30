@@ -139,8 +139,11 @@ ul.breadcrumb {
         width: 100%;
         /*background:white;*/
         position: relative;
-        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* background-attachment: fixed; */
         padding-top: 5vh;
+        /* overflow: hidden; */
 }
 
 .pllx-layer1, .pllx-layer2, .pllx-layer3, .pllx-layer4 {
@@ -245,8 +248,8 @@ a.cart-icon {
 
 
 main#content {
-    
     background-size:cover;
+    /* background: white; */
 }
 
 
@@ -375,8 +378,9 @@ ul.nav.menu.nav-pills li:hover {
 }
 
 .pllx-layer3 {
-    position: absolute;
-    width: 100%;
+    /* position: fixed; */
+    z-index: 0;
+    width: 90%;
 }
 
 .well._login {

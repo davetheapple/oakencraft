@@ -58,10 +58,10 @@
 		
 		
 		
-		$(".pllx-layer1").parallax(.8, true, .01);
-		$(".pllx-layer2").parallax(.4, true, .05);
+		$(".pllx-layer1").parallax(.2, true, .02);
+		$(".pllx-layer2").parallax(.4, true, .04);
 		//$(".pllx-l3").parallax(0, false, .01);
-		$(".pllx-layer4").parallax(.5, true, .02);
+		$(".pllx-layer4").parallax(.9, true, .09);
 		$(".pllx-layer5").parallax(.8, false, .08);
 		
 		if(!$(".pllx-layer1 img").length) {

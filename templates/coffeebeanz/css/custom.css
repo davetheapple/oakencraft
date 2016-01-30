@@ -370,7 +370,7 @@ ul.nav.menu.nav-pills img {
 
 ul.nav.menu.nav-pills li:hover {
     background: rgba(23, 117, 167, 0.16);
-    /* color: white !important; */
+    color: black !important;
 }
 
 .menu .current.active {
@@ -486,4 +486,8 @@ td.list-title a:first-child {
 
 .item-122 {
     background: rgba(255, 212, 0, 0.24);
+}
+
+.menu .current .active:hover {
+    color: black;
 }
